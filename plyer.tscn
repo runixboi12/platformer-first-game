@@ -1,10 +1,11 @@
 [gd_scene load_steps=14 format=3 uid="uid://bp8bs6ck2f7sc"]
 
+[ext_resource type="Script" uid="uid://b1f1m5lavcj72" path="res://scripts/plyer.gd" id="1_75qlu"]
 [ext_resource type="Texture2D" uid="uid://bubylhfh5udy3" path="res://assets/images/player/Fall.png" id="1_aohw6"]
 [ext_resource type="Texture2D" uid="uid://dn3vqckq0ju51" path="res://assets/images/player/HIT.png" id="2_75qlu"]
 [ext_resource type="Texture2D" uid="uid://bc6g3dpep1yj1" path="res://assets/images/player/Jump.png" id="3_natdv"]
 [ext_resource type="Texture2D" uid="uid://d0fticsdfsumv" path="res://assets/images/player/Run.png" id="4_45fr4"]
-[ext_resource type="Texture2D" uid="uid://coei10nmy76m0" path="res://assets/images/player/Idle.png" id="5_et7p8"]
+[ext_resource type="Texture2D" uid="uid://3m5uhxgwvn3i" path="res://assets/images/player/pixil-frame-0.png" id="5_aohw6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ixgjx"]
 atlas = ExtResource("2_75qlu")
@@ -30,10 +31,6 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("4_45fr4")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y04re"]
-atlas = ExtResource("5_et7p8")
-region = Rect2(0, 0, 1216, 1216)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_qh222"]
 animations = [{
 "frames": [{
@@ -51,7 +48,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dxuyd")
 }],
-"loop": true,
+"loop": false,
 "name": &"HIT",
 "speed": 5.0
 }, {
@@ -82,18 +79,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y04re")
+"texture": ExtResource("5_aohw6")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"new_animation",
 "speed": 5.0
 }]
 
 [node name="PLYER" type="CharacterBody2D"]
+position = Vector2(448, 374)
 scale = Vector2(3, 3)
+script = ExtResource("1_75qlu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qh222")
 animation = &"RUN"
-frame_progress = 0.21406625
+autoplay = "new_animation"
