@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwvgxum4vodnf"]
+
+[ext_resource type="Script" uid="uid://dlra58vk4bs55" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://0fxhrbt6klt1" path="res://assets/BUTTON ART/START BUTTON NO HOVER.png" id="2_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://d025c5qwjf0qo" path="res://assets/BUTTON ART/START BUTTON HOVER.png" id="3_jix8l"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -68.0
+offset_right = -148.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_06t4h")
+
+[node name="Start" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 214.0
+offset_top = -410.0
+offset_right = 752.0
+offset_bottom = -61.0
+texture_normal = ExtResource("2_fu7sn")
+texture_pressed = ExtResource("3_jix8l")
+texture_hover = ExtResource("3_jix8l")
+stretch_mode = 6
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 1
+offset_left = 251.0
+offset_top = -50.0
+offset_right = 710.0
+offset_bottom = 239.0
+text = "Options"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 255.0
+offset_right = 684.0
+offset_bottom = 546.0
+text = "Quit"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
